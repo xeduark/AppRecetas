@@ -1,4 +1,4 @@
-# Proyecto de Recetas: Un deleite culinario para todos
+# Proyecto de Recetas: Fresh Food
 
 Este proyecto es una aplicación web que ofrece una amplia colección de recetas, tanto vegetarianas como no vegetarianas, para satisfacer todos los gustos.  Utilizando Firebase como plataforma backend, este proyecto se basa en la eficiencia de Firestore Database para almacenar información de las recetas y Firestore Storage para alojar las imágenes de forma segura.
 
