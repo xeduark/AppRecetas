@@ -1,0 +1,45 @@
+:root {
+    --blue: #4FA0D0;
+    --blue-light: #75B9E1;
+    --orange: #ff9800;
+    --orange-light: #FFB039;
+    --green: #4AD890;
+    --green-light: #71E6AB;
+    --red: #EF5289;
+    --red-light: #F578A4;
+    --gris: #535353;
+    --blanco:#fff;
+    --popup-icon-size: 90px;
+    --popup-z-index: 10000;
+    --animation-duration: 0.3s;
+  }
+
+  .modalContent {
+    width: 30%; /* Ajusta el ancho según tus necesidades */
+    height: 20%; /* Ajusta la altura según tus necesidades */
+    margin: auto; /* Centra el modal en la pantalla */
+    border-radius: 10px; /* Aplica un borde redondeado */
+    padding: 20px; /* Ajusta el relleno interno del modal */
+    background-color: var(--blanco); /* Define el color de fondo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 2); /* Sombra para el modal */
+    margin-top: 300px;
+}
+
+.tittle, .contenido{
+    display: flex;
+    justify-content: center;
+}
+
+.btnCerrar{
+    display: block;
+    margin-top: 50px;
+    margin-left: 190px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    background: var(--red);
+    color: var(--blanco);
+}
+
+.btnCerrar:hover{
+    background: var(--orange);
+}

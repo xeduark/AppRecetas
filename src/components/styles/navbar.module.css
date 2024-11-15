@@ -1,0 +1,213 @@
+/* Estilo para el Navbar */
+:root {
+  --blue: #4FA0D0;
+  --blanco: #fff;
+  --blue-light: #75B9E1;
+  --orange: #FF4B2B;
+  --orange-light: #FFB039;
+  --green: #4AD890;
+  --green-light: #71E6AB;
+  --red: #EF5289;
+  --red-light: #F578A4;
+  --gris: #535353;
+  --gris-light:#ece8e8;
+  --azul-dark:#07042e;
+  --red-dark:#d10c0c;
+  --verde-manzana:#04d115;
+}
+/* Estilo general del navbar */
+.navbar {
+  background-color:var(--gris-light);
+  opacity: 0.9;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  z-index: 8;
+  position: fixed;
+  width: 100%;
+  left: 20rem;
+  transition: transform 0.3s ease;
+}
+
+/* Contenedor para centrar los elementos dentro del navbar */
+.container {
+  display: flex;
+  justify-content: flex-start; /* Centra horizontalmente el contenido */
+  align-items: center;
+}
+
+/* Estilo para el formulario de búsqueda */
+.searchForm {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo del input de búsqueda */
+.searchInput {
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  outline: none;
+  width: 300px; /* Ancho del input */
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+/* Cambiar borde al hacer foco */
+.searchInput:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 5px var(--verde-manzana);
+}
+
+/* Estilo del botón de búsqueda */
+.searchButton {
+  padding: 12px 12px;
+  box-shadow: 0 0 5px rgba(164, 199, 236, 0.5);
+  border: none;
+  color: var(--azul-dark);
+  border-radius: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.searchButton:hover {
+  transform: scale(1.2); /*zoom*/
+}
+/* Imagen de usuario redonda */
+.userContainer {
+  position: relative;
+  cursor: pointer;
+  transition: left 0.3s ease, margin-left 0.3s ease;
+  left: 52%;
+}
+
+.containerNameUser{
+  display: flex;
+  position: absolute;
+  left: 850px;
+}
+
+.userName{
+  color: var(--azul-dark);
+  font-weight: bold;
+}
+
+.userIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: block;
+  object-fit: cover; /*ACOMODA LA IMAGEN AL CONTENEDOR*/
+}
+
+/* Modal posicionado debajo de la imagen de usuario */
+.modalContent {
+  position: fixed;
+  top: 54px; 
+  right: 30px;
+  background: var(--azul-dark);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 200px;
+  z-index: 8;
+  font-size: smaller;
+}
+
+.modalOptions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--blanco);
+}
+
+.modalOptions li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.mailUser, .btnLogout{
+ text-align: center;
+}
+.mailUser{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+li{
+  margin-top: 0px;
+}
+
+.modalOptions li:hover {
+  background: var(--gris);
+  color: var(--verde-manzana);
+}
+/* Icono de hamburguesa */
+.hamburger {
+  display: none; /* Ocultar por defecto */
+  font-size: 16px; /* Tamaño del icono */
+  padding: 8px 12px;
+  box-shadow: 0 0 5px rgba(164, 199, 236, 0.5);
+  border: none;
+  color: var(--azul-dark);
+  border-radius: 100%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.hamburger:hover{
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Mostrar solo en pantallas pequeñas */
+  }
+  .navbar{
+    left: 0;
+  }
+  
+}
+
+/* Ajustes para pantallas más grandes */
+@media (min-width: 1000px) {
+  .userContainer{
+    left: 42%; 
+  }
+}
+/* Ajustes para pantallas entre 768px y 991px */
+@media (max-width: 991px) {
+  .userContainer{
+    left: 20%; /* Más a la izquierda a medida que la pantalla se reduce */
+  }
+  .containerNameUser{
+    left: 340px;
+  }
+  .searchInput{
+    width: 200px;
+  }
+}
+@media (max-width: 867px) {
+  .userContainer {
+    left: 20%; /* Completamente a la izquierda */
+  }
+
+}
+/* Ajustes para pantallas pequeñas (entre 576px y 767px) */
+@media (max-width: 767px) {
+  .userContainer {
+    left: 20%; /* Completamente a la izquierda */
+  }
+
+}
+
+/* Ajustes para pantallas muy pequeñas (menos de 576px) */
+@media (max-width: 575px) {
+  .userContainer {
+    left: 24%; /* Aún más a la izquierda si es necesario */
+  }
+
+}

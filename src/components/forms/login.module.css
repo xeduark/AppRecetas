@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --naranja: #FF4B2B;
+  --negro-claro: #817f7f;
+  --blanco: #FFFFFF;
+  --gris-claro: #eee;
+  --rojo-claro: #FF416C;
+  --rojo-oscuro: #d13559;
+}
+
+.tituloForm {
+  font-weight: bold;
+  margin: 0;
+}
+
+.parrafo {
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+.parrafoForm {
+  font-size: 12px;
+}
+
+.olvidoPass {
+  color: var(--negro-claro);
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+.olvidoPass:hover{
+  color: var(--naranja);
+}
+.btnLog, .ghost {
+  border-radius: 20px;
+  border: 1px solid var(--naranja);
+  background-color: var(--naranja);
+  color: var(--blanco);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+.btnLog:hover{
+  background-color: var(--rojo-claro);
+  transform: scale(1.1); 
+}
+.btnLog:active {
+  transform: scale(0.95);
+}
+
+.btnLog:focus {
+  outline: none;
+}
+
+.ghost {
+  background-color: transparent;
+  border-color: var(--blanco);
+}
+.ghost:hover{
+  transform: scale(1.1);
+}
+
+.formulario {
+  background-color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+.inputBox {
+  background-color: var(--gris-claro);
+  border: 2px solid var(--negro-claro);
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  color: var(--negro-claro);
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+.inputBox:hover{
+  background-color: transparent;
+  
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('/src/assets/cuchillos.jpg') no-repeat center center;
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+}
+
+.container {
+  background-color: var(--blanco);
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+              0 10px 10px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* Inicialmente opaco */
+   opacity: 0;
+   transition: opacity 2s cubic-bezier(0.25, 0.1, 0.25, 1);
+   animation: fadeIn 0s 2s forwards; 
+}
+/* Keyframes para la animación */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.formContainer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+.signInContainer {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.containerRightPanelActive .signInContainer {
+  transform: translateX(100%);
+}
+
+.signUpContainer {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.containerRightPanelActive .signUpContainer {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
+@keyframes show {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.overlayContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.containerRightPanelActive .overlayContainer {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  background: var(--rojo-claro);
+  background: -webkit-linear-gradient(to right, var(--naranja), var(--rojo-claro));
+  background: linear-gradient(to right, var(--naranja), var(--rojo-claro));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  color: var(--blanco);
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.containerRightPanelActive .overlay {
+  transform: translateX(50%);
+}
+
+.overlayPanel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 0px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlayLeft {
+  transform: translateX(-20%);
+}
+
+.containerRightPanelActive .overlayLeft {
+  transform: translateX(0);
+}
+
+.overlayRight {
+  right: 0;
+  transform: translateX(0);
+}
+
+.containerRightPanelActive .overlayRight {
+  transform: translateX(20%);
+}
+
+.socialContainer {
+  margin: 20px 0;
+}
+
+.socialContainer .social {
+  border: 2px solid var(--gris-claro);
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.social {
+  color: var(--naranja);
+}
+.social:hover{
+  color: var(--rojo-claro);
+  transform: scale(1.2);/*AGREGAR UN ZOOM */
+}
+.containerRightPanelActive {
+  .signInContainer {
+    transform: translateX(100%);
+  }
+
+  .signUpContainer {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+  }
+
+  .overlayContainer {
+    transform: translateX(-100%);
+  }
+
+  .overlay {
+    transform: translateX(50%);
+  }
+
+  .overlayLeft {
+    transform: translateX(0);
+  }
+
+  .overlayRight {
+    transform: translateX(20%);
+  }
+}

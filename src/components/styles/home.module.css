@@ -1,0 +1,115 @@
+:root{
+  --azul-celeste: #8AFFE6;
+  --azul-oscuro: #1B3F4B;
+  --azul-oscuro-intermedio: #3b5d68;
+  --azul-profundo:#0164f8;
+  --azul-profundo-oscuro:#0453c9;
+  --gris-claro: #CBCBCB;
+  --gris-oscuro:#6b6868;
+  --gris-oscuro-medio:#bbb8b8;
+  --azul-claro: #4E8AC4;
+  --azul-claro-intermedio: #6cb5fa;
+  --negro: #000000;
+  --blanco: #fff;
+  --verde: #017e0c;
+  --verde-claro:#03b912;
+  --naranja:#f86605;
+  --naranja-claro:#c25106;
+  --rojo:#f70511;
+  --rojo-claro:#c5060f;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1000px;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 80px;
+  }
+
+.titulo{
+  display: flex;
+  position: absolute;
+  top: 90px;
+  color: var(--azul-oscuro);
+}
+.icon{
+  margin-right: 10px;
+  margin-top: 5px;
+}
+/**********GRAFICO BARRAS***********/
+.chartCardBar{
+  border: 1px solid var(--gris-claro);
+  border-radius: 10px;
+  padding: 15px;
+  height: 400px;
+  width: 50%; /* Ajusta el ancho según sea necesario */
+  display: inline-block; /* Para que las tarjetas se muestren lado a lado */
+  box-sizing: border-box; /* Para que el padding y la border no afecten el ancho */
+  box-shadow: 0 0 5px var(--azul-oscuro);
+  margin-top: 50px;
+}
+
+.tituloBar{
+  color: var(--azul-oscuro);
+}
+
+.btnFiltro{
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  color: var(--azul-oscuro);
+  background: var(--blanco);
+
+  &:hover{
+    background: var(--gris-claro);
+  }
+}
+
+.barras {
+  margin-top: 40px;
+  max-width: 100%;
+  height: auto;
+}
+
+/****************GRAFICO DONNA***********/
+.chartCardDonna{
+  border: 1px solid var(--gris-claro);
+  border-radius: 10px;
+  padding: 15px;
+  height: 400px;
+  width: 45%; /* Ajusta el ancho según sea necesario */
+  display: inline-block; /* Para que las tarjetas se muestren lado a lado */
+  box-sizing: border-box; /* Para que el padding y la border no afecten el ancho */
+  box-shadow: 0 0 5px var(--azul-oscuro);
+  margin-top: 50px;
+}
+
+.tituloDona{
+  color: var(--azul-oscuro);
+}
+
+.donna{
+  max-width: 100%;
+  max-height: 80%;
+  margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .chartCardBar, .chartCardDonna {
+    width: 100%; /* Los gráficos ocupan el ancho completo */
+    margin-top: 20px; /* Espaciado adicional entre elementos */
+  }
+  .barras{
+    width: min-content;
+  }
+
+  .container {
+    width: 400px;
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+  }
+}

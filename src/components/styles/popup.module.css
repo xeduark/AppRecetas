@@ -1,0 +1,111 @@
+:root {
+    --blue: #4FA0D0;
+    --blue-light: #75B9E1;
+    --orange: #ff9800;
+    --orange-light: #FFB039;
+    --green: #4AD890;
+    --green-light: #71E6AB;
+    --red: #EF5289;
+    --red-light: #F578A4;
+    --gris: #535353;
+    --popup-icon-size: 90px;
+    --popup-z-index: 10000;
+    --animation-duration: 0.3s;
+  }
+  
+  .button {
+    margin-bottom: 4px;
+    padding: 8px 12px;
+    border: 1px solid var(--blue-light);
+    border-radius: 3px;
+    background: var(--blue);
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+  .buttonError {
+    border: 1px solid var(--red-light);
+    background: var(--red);
+  }
+  .buttonError:hover{
+    background-color: var(--red);
+    transform: scale(1.1);
+  }
+  
+  .popup {
+    visibility: hidden;
+    transition: visibility 0ms linear var(--animation-duration);
+  }
+  
+  .popupVisible {
+    visibility: visible;
+    transition: visibility 0ms;
+  }
+  
+  .popupBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--popup-z-index);
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity var(--animation-duration) ease-in-out;
+  }
+  
+  .popupVisible .popupBackground {
+    opacity: 1;
+  }
+  
+  .popupContent {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: calc(var(--popup-z-index) + 1);
+    min-width: 400px;
+    padding: 25px 50px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    animation: show-popup var(--animation-duration) forwards;
+  }
+  
+  .popupIcon {
+    font-size: var(--popup-icon-size);
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+  
+  .popupTitle {
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 100;
+    color: var(--gris);
+  }
+  
+  @keyframes show-popup {
+    0% {
+      transform: translate(-50%, -50%) scale(0.7);
+      opacity: 0;
+    }
+    45% {
+      transform: translate(-50%, -50%) scale(1.05);
+      opacity: 1;
+    }
+    80% {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  

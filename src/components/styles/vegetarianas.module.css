@@ -1,0 +1,273 @@
+
+:root {
+  --blue: #4FA0D0;
+  --blanco: #fff;
+  --blue-light: #75B9E1;
+  --orange: #FF4B2B;
+  --orange-light: #FFB039;
+  --green: #4AD890;
+  --green-light: #71E6AB;
+  --red: #EF5289;
+  --red-light: #F578A4;
+  --gris: #535353;
+  --azul-dark:#07042e;
+  --red-dark:#d10c0c;
+  --verde-manzana:#04d115;
+  --rosa: #FF0072;
+}
+.cards {
+  margin-top: 100px;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.containerTittle{
+  position: relative;
+  top: 0;
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 50px;
+}
+
+.tittle{
+  color: var(--azul-dark);
+}
+
+.crearReceta{
+  top: 0;
+  right: 10px;
+  position: absolute;
+  background: var(--green); 
+  color: var(--blanco);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 0.5em 0.5em -0.4em var(--azul-dark);
+  font-size: 16px;
+}
+
+.crearReceta:hover, .crearReceta:focus{
+  background: var(--azul-dark);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--blue-light);
+  transform: translateY(-0.25em);
+  color: var(--verde-manzana);
+}
+
+.card {
+  width: 250px;
+  height: 300px; /* Ajusta la altura según tu contenido */
+  perspective: 1000px; /* Para el efecto 3D */
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* Mantiene el estilo 3D */
+}
+
+.card.open .cardInner {
+  transform: rotateY(180deg); /* Efecto de giro */
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Oculta la parte trasera */
+  border-radius: 10px;
+  box-shadow: 0 2px 25px rgba(0, 0, 130, 0.5);
+}
+
+.cardFront {
+  background: var(--blanco); /* Fondo de la parte frontal */
+  padding: 0px;
+}
+
+.cardBack {
+  background: var(--blanco); /* Fondo de la parte trasera */
+  padding: 10px;
+  transform: rotateY(180deg); /* Inicialmente oculto */
+}
+.imagen {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 180px;
+  width: 100%;
+}
+
+.detalle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--blue); 
+  color: var(--blanco);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 0.5em 0.5em -0.4em var(--verde-manzana);
+}
+.detalle:hover,
+.detalle:focus {
+  background: var(--azul-dark);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--blue-light);
+  transform: translateY(-0.25em);
+  color: var(--verde-manzana);
+}
+.tituloCard{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  color: var(--azul-dark);
+}
+.dificultadCard{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+.cards section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 400px;
+  height: 200px;
+  margin-top: 15px;
+  box-shadow: 5px 5px 10px black;
+  padding: 10px;
+}
+
+.cards section{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.containerBtns{
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+/**************************BOTON ELIMINAR*******************/
+.eliminar {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase; /* Convertir texto a mayúscula */
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  font-weight: bold;
+  color: black;
+  padding: 8px 0;
+  border: 3px solid var(--rosa);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease all;
+  z-index:2;
+}
+
+.eliminar::before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 0; /* Iniciar desde la izquierda */
+  right: 100%; /* Ocultar completamente hacia la derecha */
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: var(--rosa);
+  z-index: -1;
+}
+
+.eliminar:hover {
+  color: var(--blanco); 
+  z-index: 1;
+  
+}
+
+.eliminar:hover::before {
+  transition: 0.5s all ease;
+  right: 0; /* Expandir desde la derecha hacia la izquierda */
+  opacity: 1;
+}
+
+.eliminar:focus::before {
+  right: 0;
+  opacity: 1;
+}
+/********BOTON EDITAR ****************/
+.editar {
+  font-size: 10px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  font-weight: bold;
+  color: black;
+  padding: 8px 0;
+  border: 3px solid var(--orange);
+  border-radius: 10px;
+  position: relative; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease all;
+ 
+}
+
+.editar::before {
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  right: 0; 
+  left: 100%; 
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: var(--orange);
+  z-index: -1;
+}
+
+.editar:hover {
+  color: var(--blanco); 
+  z-index: 1;
+}
+
+.editar:hover::before {
+  left: 0; 
+  opacity: 1;
+}
+
+.editar:focus::before {
+  left: 0;
+  opacity: 1;
+}
+
+/**********TEXTO EN LA PARTE TRASERA DE LA CARD****/
+.containerText{
+  margin-top: 50px;
+  height: 150px;
+  font-size: clamp(12px, 2vw, 18px); /* El tamaño de la fuente se ajusta */
+  overflow-y: auto; 
+  text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto se desborda */
+  display: block;
+}
+.timeCard{
+  font-weight: bold;
+}
+

@@ -1,0 +1,25 @@
+.panelControl{
+    width: calc(100% - 20rem);
+    display: flex;
+    justify-content: center;
+    margin-left: 20rem;
+    height: 100%;
+    align-items: center;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+@media (max-width:768px){
+    .panelControl{
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+    }
+    .panelControl{
+        height: auto;
+        padding: 10px;
+    }
+}

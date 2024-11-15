@@ -1,0 +1,68 @@
+:root {
+    --blue: #4FA0D0;
+    --blanco: #fff;
+    --blue-light: #75B9E1;
+    --orange: #FF4B2B;
+    --orange-light: #FFB039;
+    --green: #4AD890;
+    --green-light: #71E6AB;
+    --red: #EF5289;
+    --red-light: #F578A4;
+    --gris: #535353;
+    --azul-dark:#07042e;
+    --azul-dark-light:#12098d;
+    --gris-light: #5c5959;
+    --verde-manzana:#04d115;
+  }
+.sidebar {
+    position: fixed; /* Fija el Sidebar en la pantalla */
+    top: 0;
+    left: 0; 
+    width: 20rem; /* Ancho del Sidebar */
+    height: 100%; /* Ajusta la altura si es necesario */
+    border-right: 1px solid var(--color-gris);
+    display: flex;
+    justify-content: center;
+    background-color: var(--azul-dark); /* Color de fondo opcional */
+    box-shadow: -2px 0 5px regba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    z-index: 7;
+  }
+  
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    margin-bottom: 0;
+}
+.icon{
+    margin-right: 10px;
+}
+.links{
+    margin-top: 60px;
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    text-decoration: none;
+    color: var(--blanco);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 5px;
+}
+.links:active{
+    background-color: var(--blue-light);
+}
+.links:hover{
+    width: 70%;
+    background-color: var(--gris);
+    color: var(--verde-manzana);
+}
+
+@media (max-width: 768px) {
+    .sidebar.closed{
+        transform: translateX(-100%);
+      }
+  }
